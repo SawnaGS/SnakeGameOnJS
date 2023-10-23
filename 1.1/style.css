@@ -14,6 +14,11 @@ body {
   align-items: center;
 }
 
+#control-instructions {
+  color: white;
+  font-size: 20px;
+}
+
 #game-field {
   background-color: #ffffff;
   border-radius: 5px;
@@ -31,20 +36,25 @@ body {
   text-align: center;
   height: 50px;
   width: 100px;
+  line-height: 50px;
   background: #121214;
   border-radius: 5px;
   font-size: 25px;
   color: #ffffff;
 }
 
-#restart-button {
+#restart-button,
+#help-button {
   margin-top: 10px;
   height: 50px;
   width: 100px;
   background-color: rgb(255, 255, 255) 2a2;
   cursor: pointer;
+  margin-right: 10px;
+  display: inline-block;
 }
 
-#restart-button:active {
+#restart-button:active,
+#help-button:active {
   background-color: #ffd700;
 }

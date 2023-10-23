@@ -11,6 +11,7 @@ function gameLoop() {
 
   let direction = "right";
   let lastDirection = "right";
+  let isPaused = false;
   document.addEventListener("keydown", function (event) {
     if (
       (event.code === "ArrowUp" || event.code === "KeyW") &&
@@ -32,6 +33,9 @@ function gameLoop() {
       lastDirection !== "left"
     ) {
       direction = "right";
+    }
+    if (event.code === "Escape" || event.code === "Space") {
+      isPaused = !isPaused;
     }
   });
 
@@ -134,6 +138,9 @@ function gameLoop() {
   }
 
   function updateGame() {
+    if (isPaused) {
+      return;
+    }
     moveSnake();
     checkIfTheGameIsOver();
     checkIfFoodIsEaten();
@@ -158,3 +165,12 @@ function gameLoop() {
 }
 
 gameLoop();
+
+const helpButton = document.getElementById("help-button");
+let controlInstructions = document.getElementById("control-instructions");
+
+helpButton.addEventListener("click", function () {
+  if (controlInstructions.style.visibility === "hidden") {
+    controlInstructions.style.visibility = "visible";
+  } else controlInstructions.style.visibility = "hidden";
+});
